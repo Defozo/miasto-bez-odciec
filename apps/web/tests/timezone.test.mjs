@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import ts from 'typescript';
+const source=fs.readFileSync(new URL('../src/api.ts',import.meta.url),'utf8');
+const code=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext}}).outputText;
+const {warsawUtc}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+assert.equal(warsawUtc('2026-10-03T14:30'),'2026-10-03T12:30:00.000Z');
+assert.equal(warsawUtc('2026-12-03T14:30'),'2026-12-03T13:30:00.000Z');
+assert.throws(()=>warsawUtc('2026-03-29T02:30'),/nie istnieje/);
+assert.throws(()=>warsawUtc('2026-10-25T02:30'),/dwa razy/);
+assert.equal(warsawUtc('2026-10-25T02:30+02:00'),'2026-10-25T00:30:00.000Z');
+assert.equal(warsawUtc('2026-10-25T02:30+01:00'),'2026-10-25T01:30:00.000Z');
+console.log('6 timezone checks passed');
+fs.writeFileSync(new URL('../../../artifacts/timezone-tests.json',import.meta.url),JSON.stringify({success:true,passed:6,checked_at:new Date().toISOString(),cases:['Warsaw summer time','Warsaw winter time','nonexistent spring hour rejected','ambiguous autumn hour rejected','explicit daylight offset preserved','explicit standard offset preserved']},null,2));

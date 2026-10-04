@@ -1,0 +1,11 @@
+{$SMART_CITY_DOMAIN} {
+    encode zstd gzip
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options nosniff
+        Referrer-Policy no-referrer
+        X-Frame-Options DENY
+        Permissions-Policy "geolocation=(), camera=(), microphone=()"
+    }
+    reverse_proxy api:8000
+}

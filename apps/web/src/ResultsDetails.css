@@ -1,0 +1,24 @@
+.results-details { min-width: 0; }
+.results-details > p { max-width: 90ch; }
+.results-detail-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 22px 0; }
+.results-detail-stats > div { display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid #dce3de; border-radius: 12px; background: #f7f9f6; }
+.results-detail-stats > div > span { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
+.results-detail-stats > div > span svg { flex-shrink: 0; }
+.results-detail-stats strong { font-size: 29px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.results-detail-stats small { font-size: 12px; line-height: 1.55; font-weight: 400; }
+.results-detail-section { padding-top: 25px; margin-top: 25px; border-top: 1px solid #e2e7e0; }
+.results-detail-table { font-variant-numeric: tabular-nums; }
+.results-detail-table caption { text-align: left; color: #4e5e58; font-size: 12px; padding: 0 0 12px; caption-side: top; }
+.results-detail-table th:first-child { min-width: 150px; }
+.results-detail-table td { text-align: right; }
+.results-detail-table td:last-child { white-space: normal; }
+.results-detail-lists { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.results-detail-lists ul, .results-detail-weights { padding-left: 20px; }
+.results-detail-lists li { padding: 6px 0; }
+.results-detail-lists li span { display: block; font-weight: 600; }
+.results-detail-weighted { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 14px; font-size: 13px; }
+.results-detail-weights { max-height: 240px; overflow-y: auto; font-size: 12px; line-height: 1.7; }
+.results-detail-ranking { padding-left: 24px; line-height: 1.9; }
+.results-detail-options { display: flex; flex-wrap: wrap; list-style: none; gap: 10px; padding: 0; }
+.results-detail-options li { display: flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid #ddd8ea; border-radius: 9px; font-size: 13px; }
+@media (max-width: 720px) { .results-detail-stats, .results-detail-lists { grid-template-columns: 1fr; } .results-detail-stats > div { padding: 15px; } }

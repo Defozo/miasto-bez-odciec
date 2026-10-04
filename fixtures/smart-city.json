@@ -1,0 +1,1278 @@
+{
+  "version": "fixture-v1",
+  "evidence_version": 1,
+  "layer": "fixture",
+  "name": "Miasto bez odcięć · dane syntetyczne",
+  "clock": "2026-10-03T07:00:00Z",
+  "timezone": "Europe/Warsaw",
+  "valid_from": "2026-10-02T22:00:00Z",
+  "valid_until": "2026-10-03T21:59:00Z",
+  "coverage": {
+    "bbox": [
+      19.925,
+      50.067,
+      19.936,
+      50.074
+    ],
+    "audited": false,
+    "status": "synthetic",
+    "buffer_m": 2500
+  },
+  "nodes": [
+    {
+      "id": "origin-west",
+      "name": "Punkt A · Karmelicka",
+      "lon": 19.9273,
+      "lat": 50.0695,
+      "level": 0
+    },
+    {
+      "id": "origin-east",
+      "name": "Punkt B · Łobzowska",
+      "lon": 19.9312,
+      "lat": 50.071,
+      "level": 0
+    },
+    {
+      "id": "north",
+      "name": "Dojście północne",
+      "lon": 19.9298,
+      "lat": 50.0722,
+      "level": 0
+    },
+    {
+      "id": "south",
+      "name": "Dojście południowe",
+      "lon": 19.929,
+      "lat": 50.069,
+      "level": 0
+    },
+    {
+      "id": "clinic-door",
+      "name": "Wejście do przychodni",
+      "lon": 19.9335,
+      "lat": 50.0701,
+      "level": 0
+    }
+  ],
+  "edges": [
+    {
+      "id": "west-north",
+      "u": "origin-west",
+      "v": "north",
+      "asset_id": "west-north",
+      "length_m": 280,
+      "duration_s": 300,
+      "preference_cost": 280,
+      "slope_direction": 1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Chodnik A północ",
+      "geometry": [
+        [
+          19.9273,
+          50.0695
+        ],
+        [
+          19.9298,
+          50.0722
+        ]
+      ]
+    },
+    {
+      "id": "west-north-reverse",
+      "u": "north",
+      "v": "origin-west",
+      "asset_id": "west-north",
+      "length_m": 280,
+      "duration_s": 300,
+      "preference_cost": 280,
+      "slope_direction": -1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Chodnik A północ",
+      "geometry": [
+        [
+          19.9298,
+          50.0722
+        ],
+        [
+          19.9273,
+          50.0695
+        ]
+      ]
+    },
+    {
+      "id": "west-south",
+      "u": "origin-west",
+      "v": "south",
+      "asset_id": "west-south",
+      "length_m": 220,
+      "duration_s": 260,
+      "preference_cost": 220,
+      "slope_direction": 1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Chodnik A południe",
+      "geometry": [
+        [
+          19.9273,
+          50.0695
+        ],
+        [
+          19.929,
+          50.069
+        ]
+      ]
+    },
+    {
+      "id": "west-south-reverse",
+      "u": "south",
+      "v": "origin-west",
+      "asset_id": "west-south",
+      "length_m": 220,
+      "duration_s": 260,
+      "preference_cost": 220,
+      "slope_direction": -1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Chodnik A południe",
+      "geometry": [
+        [
+          19.929,
+          50.069
+        ],
+        [
+          19.9273,
+          50.0695
+        ]
+      ]
+    },
+    {
+      "id": "east-north",
+      "u": "origin-east",
+      "v": "north",
+      "asset_id": "east-north",
+      "length_m": 190,
+      "duration_s": 230,
+      "preference_cost": 190,
+      "slope_direction": 1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Chodnik B północ",
+      "geometry": [
+        [
+          19.9312,
+          50.071
+        ],
+        [
+          19.9298,
+          50.0722
+        ]
+      ]
+    },
+    {
+      "id": "east-north-reverse",
+      "u": "north",
+      "v": "origin-east",
+      "asset_id": "east-north",
+      "length_m": 190,
+      "duration_s": 230,
+      "preference_cost": 190,
+      "slope_direction": -1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Chodnik B północ",
+      "geometry": [
+        [
+          19.9298,
+          50.0722
+        ],
+        [
+          19.9312,
+          50.071
+        ]
+      ]
+    },
+    {
+      "id": "east-south",
+      "u": "origin-east",
+      "v": "south",
+      "asset_id": "east-south",
+      "length_m": 280,
+      "duration_s": 330,
+      "preference_cost": 280,
+      "slope_direction": 1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Chodnik B południe",
+      "geometry": [
+        [
+          19.9312,
+          50.071
+        ],
+        [
+          19.929,
+          50.069
+        ]
+      ]
+    },
+    {
+      "id": "east-south-reverse",
+      "u": "south",
+      "v": "origin-east",
+      "asset_id": "east-south",
+      "length_m": 280,
+      "duration_s": 330,
+      "preference_cost": 280,
+      "slope_direction": -1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Chodnik B południe",
+      "geometry": [
+        [
+          19.929,
+          50.069
+        ],
+        [
+          19.9312,
+          50.071
+        ]
+      ]
+    },
+    {
+      "id": "north-clinic",
+      "u": "north",
+      "v": "clinic-door",
+      "asset_id": "crossing-x",
+      "length_m": 310,
+      "duration_s": 350,
+      "preference_cost": 310,
+      "slope_direction": 1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Przejście północne X",
+      "geometry": [
+        [
+          19.9298,
+          50.0722
+        ],
+        [
+          19.9335,
+          50.0701
+        ]
+      ]
+    },
+    {
+      "id": "north-clinic-reverse",
+      "u": "clinic-door",
+      "v": "north",
+      "asset_id": "crossing-x",
+      "length_m": 310,
+      "duration_s": 350,
+      "preference_cost": 310,
+      "slope_direction": -1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Przejście północne X",
+      "geometry": [
+        [
+          19.9335,
+          50.0701
+        ],
+        [
+          19.9298,
+          50.0722
+        ]
+      ]
+    },
+    {
+      "id": "south-clinic",
+      "u": "south",
+      "v": "clinic-door",
+      "asset_id": "crossing-y",
+      "length_m": 370,
+      "duration_s": 420,
+      "preference_cost": 370,
+      "slope_direction": 1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Przejście południowe Y",
+      "geometry": [
+        [
+          19.929,
+          50.069
+        ],
+        [
+          19.9335,
+          50.0701
+        ]
+      ]
+    },
+    {
+      "id": "south-clinic-reverse",
+      "u": "clinic-door",
+      "v": "south",
+      "asset_id": "crossing-y",
+      "length_m": 370,
+      "duration_s": 420,
+      "preference_cost": 370,
+      "slope_direction": -1,
+      "level": 0,
+      "side": "synthetic",
+      "name": "Przejście południowe Y",
+      "geometry": [
+        [
+          19.9335,
+          50.0701
+        ],
+        [
+          19.929,
+          50.069
+        ]
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "crossing-x",
+      "name": "Przejście północne X",
+      "kind": "crossing",
+      "failure_group_id": "north-corridor"
+    },
+    {
+      "id": "crossing-y",
+      "name": "Przejście południowe Y",
+      "kind": "crossing",
+      "failure_group_id": "south-corridor"
+    },
+    {
+      "id": "west-north",
+      "name": "Chodnik A północ",
+      "kind": "footway"
+    },
+    {
+      "id": "west-south",
+      "name": "Chodnik A południe",
+      "kind": "footway"
+    },
+    {
+      "id": "east-north",
+      "name": "Chodnik B północ",
+      "kind": "footway"
+    },
+    {
+      "id": "east-south",
+      "name": "Chodnik B południe",
+      "kind": "footway"
+    },
+    {
+      "id": "clinic-entrance",
+      "name": "Drzwi przychodni",
+      "kind": "entrance"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e-crossing-x-open",
+      "asset_id": "crossing-x",
+      "feature": "open",
+      "value": true,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-x-steps",
+      "asset_id": "crossing-x",
+      "feature": "steps",
+      "value": false,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-x-width_m",
+      "asset_id": "crossing-x",
+      "feature": "width_m",
+      "value": 1.8,
+      "unit": "m",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-x-kerb_cm",
+      "asset_id": "crossing-x",
+      "feature": "kerb_cm",
+      "value": 0.0,
+      "unit": "cm",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-x-slope_pct",
+      "asset_id": "crossing-x",
+      "feature": "slope_pct",
+      "value": 2.0,
+      "unit": "%",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-x-surface",
+      "asset_id": "crossing-x",
+      "feature": "surface",
+      "value": "asphalt",
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-y-open",
+      "asset_id": "crossing-y",
+      "feature": "open",
+      "value": true,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-y-steps",
+      "asset_id": "crossing-y",
+      "feature": "steps",
+      "value": false,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-y-width_m",
+      "asset_id": "crossing-y",
+      "feature": "width_m",
+      "value": 1.8,
+      "unit": "m",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-y-kerb_cm",
+      "asset_id": "crossing-y",
+      "feature": "kerb_cm",
+      "value": 0.0,
+      "unit": "cm",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-y-slope_pct",
+      "asset_id": "crossing-y",
+      "feature": "slope_pct",
+      "value": 2.0,
+      "unit": "%",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-crossing-y-surface",
+      "asset_id": "crossing-y",
+      "feature": "surface",
+      "value": "asphalt",
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-north-open",
+      "asset_id": "west-north",
+      "feature": "open",
+      "value": true,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-north-steps",
+      "asset_id": "west-north",
+      "feature": "steps",
+      "value": false,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-north-width_m",
+      "asset_id": "west-north",
+      "feature": "width_m",
+      "value": 1.8,
+      "unit": "m",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-north-kerb_cm",
+      "asset_id": "west-north",
+      "feature": "kerb_cm",
+      "value": 0.0,
+      "unit": "cm",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-north-slope_pct",
+      "asset_id": "west-north",
+      "feature": "slope_pct",
+      "value": 2.0,
+      "unit": "%",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-north-surface",
+      "asset_id": "west-north",
+      "feature": "surface",
+      "value": "asphalt",
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-south-open",
+      "asset_id": "west-south",
+      "feature": "open",
+      "value": true,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-south-steps",
+      "asset_id": "west-south",
+      "feature": "steps",
+      "value": false,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-south-width_m",
+      "asset_id": "west-south",
+      "feature": "width_m",
+      "value": 1.8,
+      "unit": "m",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-south-kerb_cm",
+      "asset_id": "west-south",
+      "feature": "kerb_cm",
+      "value": 0.0,
+      "unit": "cm",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-south-slope_pct",
+      "asset_id": "west-south",
+      "feature": "slope_pct",
+      "value": 2.0,
+      "unit": "%",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-west-south-surface",
+      "asset_id": "west-south",
+      "feature": "surface",
+      "value": "asphalt",
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-north-open",
+      "asset_id": "east-north",
+      "feature": "open",
+      "value": true,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-north-steps",
+      "asset_id": "east-north",
+      "feature": "steps",
+      "value": false,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-north-width_m",
+      "asset_id": "east-north",
+      "feature": "width_m",
+      "value": 1.8,
+      "unit": "m",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-north-kerb_cm",
+      "asset_id": "east-north",
+      "feature": "kerb_cm",
+      "value": 0.0,
+      "unit": "cm",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-north-slope_pct",
+      "asset_id": "east-north",
+      "feature": "slope_pct",
+      "value": 2.0,
+      "unit": "%",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-north-surface",
+      "asset_id": "east-north",
+      "feature": "surface",
+      "value": "asphalt",
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-south-open",
+      "asset_id": "east-south",
+      "feature": "open",
+      "value": true,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-south-steps",
+      "asset_id": "east-south",
+      "feature": "steps",
+      "value": false,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-south-width_m",
+      "asset_id": "east-south",
+      "feature": "width_m",
+      "value": 1.8,
+      "unit": "m",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-south-kerb_cm",
+      "asset_id": "east-south",
+      "feature": "kerb_cm",
+      "value": 0.0,
+      "unit": "cm",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-south-slope_pct",
+      "asset_id": "east-south",
+      "feature": "slope_pct",
+      "value": 2.0,
+      "unit": "%",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-east-south-surface",
+      "asset_id": "east-south",
+      "feature": "surface",
+      "value": "asphalt",
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-clinic-entrance-open",
+      "asset_id": "clinic-entrance",
+      "feature": "open",
+      "value": true,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-clinic-entrance-steps",
+      "asset_id": "clinic-entrance",
+      "feature": "steps",
+      "value": false,
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-clinic-entrance-width_m",
+      "asset_id": "clinic-entrance",
+      "feature": "width_m",
+      "value": 1.8,
+      "unit": "m",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-clinic-entrance-kerb_cm",
+      "asset_id": "clinic-entrance",
+      "feature": "kerb_cm",
+      "value": 0.0,
+      "unit": "cm",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-clinic-entrance-slope_pct",
+      "asset_id": "clinic-entrance",
+      "feature": "slope_pct",
+      "value": 2.0,
+      "unit": "%",
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    },
+    {
+      "id": "e-clinic-entrance-surface",
+      "asset_id": "clinic-entrance",
+      "feature": "surface",
+      "value": "asphalt",
+      "unit": null,
+      "valid_from": "2026-10-02T22:00:00Z",
+      "valid_until": "2026-10-03T21:59:00Z",
+      "observed_at": "2026-10-03T05:00:00Z",
+      "author": "Generator danych syntetycznych",
+      "method": "fixture",
+      "source_id": "fixture-source",
+      "status": "confirmed",
+      "layer": "fixture",
+      "revision": 1
+    }
+  ],
+  "profiles": [
+    {
+      "id": "wheelchair",
+      "name": "Bez schodów · wózek",
+      "allow_steps": false,
+      "min_width_m": 0.9,
+      "max_kerb_cm": 2,
+      "max_uphill_pct": 6,
+      "max_downhill_pct": 8,
+      "allowed_surfaces": [
+        "asphalt",
+        "paving",
+        "concrete"
+      ],
+      "max_distance_m": 1600,
+      "max_duration_s": 1800,
+      "settings_notice": "Edytowalne założenia demonstracyjne, nie uniwersalna norma."
+    },
+    {
+      "id": "stroller",
+      "name": "Z wózkiem dziecięcym",
+      "allow_steps": false,
+      "min_width_m": 0.8,
+      "max_kerb_cm": 4,
+      "max_uphill_pct": 10,
+      "max_downhill_pct": 10,
+      "allowed_surfaces": [
+        "asphalt",
+        "paving",
+        "concrete",
+        "compacted"
+      ],
+      "max_distance_m": 2000,
+      "max_duration_s": 1800
+    },
+    {
+      "id": "walking",
+      "name": "Pieszo",
+      "allow_steps": true,
+      "min_width_m": 0.6,
+      "max_kerb_cm": 20,
+      "max_uphill_pct": 20,
+      "max_downhill_pct": 20,
+      "allowed_surfaces": [
+        "asphalt",
+        "paving",
+        "concrete",
+        "compacted",
+        "gravel"
+      ],
+      "max_distance_m": 2500,
+      "max_duration_s": 1800
+    }
+  ],
+  "places": [
+    {
+      "id": "clinic",
+      "name": "Przychodnia · cel demonstracyjny",
+      "category": "healthcare",
+      "entrance_ids": [
+        "clinic-main"
+      ],
+      "lon": 19.9335,
+      "lat": 50.0701
+    }
+  ],
+  "entrances": [
+    {
+      "id": "clinic-main",
+      "node_id": "clinic-door",
+      "asset_id": "clinic-entrance",
+      "place_id": "clinic",
+      "name": "Wejście główne",
+      "level": 0
+    }
+  ],
+  "origins": [
+    {
+      "id": "origin-west",
+      "name": "Punkt A · Karmelicka",
+      "lon": 19.9273,
+      "lat": 50.0695,
+      "level": 0
+    },
+    {
+      "id": "origin-east",
+      "name": "Punkt B · Łobzowska",
+      "lon": 19.9312,
+      "lat": 50.071,
+      "level": 0
+    }
+  ],
+  "works": [
+    {
+      "id": "X",
+      "name": "Prace na dojściu północnym",
+      "asset_id": "crossing-x",
+      "start": "2026-10-03T06:00:00Z",
+      "end": "2026-10-03T12:00:00Z",
+      "duration_s": 21600,
+      "kind": "closure",
+      "status": "confirmed",
+      "layer": "fixture",
+      "invalidated_features": [
+        "open"
+      ],
+      "resource": "crew-x",
+      "cost": null
+    },
+    {
+      "id": "Y",
+      "name": "Prace na dojściu południowym",
+      "asset_id": "crossing-y",
+      "start": "2026-10-03T08:00:00Z",
+      "end": "2026-10-03T14:00:00Z",
+      "duration_s": 21600,
+      "kind": "closure",
+      "status": "confirmed",
+      "layer": "fixture",
+      "invalidated_features": [
+        "open"
+      ],
+      "resource": "crew-y",
+      "cost": null
+    }
+  ],
+  "restrictions": [
+    {
+      "id": "X",
+      "name": "Prace na dojściu północnym",
+      "asset_id": "crossing-x",
+      "start": "2026-10-03T06:00:00Z",
+      "end": "2026-10-03T12:00:00Z",
+      "duration_s": 21600,
+      "kind": "closure",
+      "status": "confirmed",
+      "layer": "fixture",
+      "invalidated_features": [
+        "open"
+      ],
+      "resource": "crew-x",
+      "cost": null
+    },
+    {
+      "id": "Y",
+      "name": "Prace na dojściu południowym",
+      "asset_id": "crossing-y",
+      "start": "2026-10-03T08:00:00Z",
+      "end": "2026-10-03T14:00:00Z",
+      "duration_s": 21600,
+      "kind": "closure",
+      "status": "confirmed",
+      "layer": "fixture",
+      "invalidated_features": [
+        "open"
+      ],
+      "resource": "crew-y",
+      "cost": null
+    }
+  ],
+  "horizon": {
+    "start": "2026-10-03T06:00:00Z",
+    "end": "2026-10-03T18:30:00Z"
+  },
+  "bindings": [
+    {
+      "asset_id": "crossing-x",
+      "graph_version": "fixture-v1",
+      "edge_ids": [
+        "north-clinic",
+        "north-clinic-reverse"
+      ]
+    },
+    {
+      "asset_id": "crossing-y",
+      "graph_version": "fixture-v1",
+      "edge_ids": [
+        "south-clinic",
+        "south-clinic-reverse"
+      ]
+    },
+    {
+      "asset_id": "west-north",
+      "graph_version": "fixture-v1",
+      "edge_ids": [
+        "west-north",
+        "west-north-reverse"
+      ]
+    },
+    {
+      "asset_id": "west-south",
+      "graph_version": "fixture-v1",
+      "edge_ids": [
+        "west-south",
+        "west-south-reverse"
+      ]
+    },
+    {
+      "asset_id": "east-north",
+      "graph_version": "fixture-v1",
+      "edge_ids": [
+        "east-north",
+        "east-north-reverse"
+      ]
+    },
+    {
+      "asset_id": "east-south",
+      "graph_version": "fixture-v1",
+      "edge_ids": [
+        "east-south",
+        "east-south-reverse"
+      ]
+    },
+    {
+      "asset_id": "clinic-entrance",
+      "graph_version": "fixture-v1",
+      "edge_ids": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "fixture-source",
+      "publisher": "Miasto bez odcięć",
+      "kind": "synthetic",
+      "license": "CC0-1.0",
+      "observed_at": null
+    }
+  ],
+  "notice": "Dane testowe. Lokalizacja ilustruje proponowany obszar audytu, nie stan Krakowa."
+}

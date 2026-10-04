@@ -1,0 +1,75 @@
+name: smart-city
+x-app: &app
+  build: .
+  image: smart-city:local
+  environment: &env
+    SMART_CITY_DB_PASSWORD: ${SMART_CITY_DB_PASSWORD:?Inject through psst}
+    SMART_CITY_OPERATOR_PASSWORD: ${SMART_CITY_OPERATOR_PASSWORD:?Inject through psst}
+    SMART_CITY_VERIFIER_PASSWORD: ${SMART_CITY_VERIFIER_PASSWORD:?Inject through psst}
+    SMART_CITY_ADMIN_PASSWORD: ${SMART_CITY_ADMIN_PASSWORD:?Inject through psst}
+    SMART_CITY_PUBLIC_MODE: ${SMART_CITY_PUBLIC_MODE:-false}
+    SMART_CITY_LOCAL_DEMO_AUTH: "false"
+    SMART_CITY_ORIGIN: ${SMART_CITY_ORIGIN:-http://localhost:8087}
+    STORAGE_PATH: /data/evidence
+    SMART_CITY_WEB_DIST: /app/apps/web/dist
+    SMART_CITY_ENABLE_GROQ: ${SMART_CITY_ENABLE_GROQ:-false}
+    SMART_CITY_ENABLE_FIRECRAWL: ${SMART_CITY_ENABLE_FIRECRAWL:-false}
+    GROQ_API_KEY: ${GROQ_API_KEY:-}
+    FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY:-}
+  volumes:
+    - evidence:/data
+  restart: unless-stopped
+services:
+  db:
+    image: postgis/postgis:16-3.5-alpine@sha256:47e961a569fd52ff31f0fe205ed91eeab17d9f5fff6722e6d7ea6b588748b293
+    environment:
+      POSTGRES_DB: smartcity
+      POSTGRES_USER: smartcity
+      POSTGRES_PASSWORD: ${SMART_CITY_DB_PASSWORD:?Inject through psst}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U smartcity -d smartcity"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  migrate:
+    <<: *app
+    command: ["python", "scripts/start-container.py", "init"]
+    depends_on:
+      db: {condition: service_healthy}
+    restart: "no"
+  api:
+    <<: *app
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/ready')"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+  worker:
+    <<: *app
+    command: ["python", "scripts/start-container.py", "worker"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+  proxy:
+    image: caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d
+    ports:
+      - "127.0.0.1:8087:80"
+    volumes:
+      - ./config/Caddyfile.local:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    depends_on:
+      api: {condition: service_healthy}
+    restart: unless-stopped
+volumes:
+  postgres:
+  evidence:
+  caddy_data:
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${SMART_CITY_SUBNET:-10.253.83.0/24}

@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/fastapi/full-stack-fastapi-template",
+  "revision": "1762adac607a1b29cfc4da129557780beea71616",
+  "licence": "MIT",
+  "security_sha256": "ADB90882929AB33C238E2E9FA81B03FA0364C1A8CCE0E9E70B98C68C321F468F",
+  "audited_files": [
+    "backend/app/core/security.py",
+    "LICENSE"
+  ],
+  "decision": "Architecture reference. Argon2 retained, JWT replaced by revocable opaque cookie sessions and CSRF protection."
+}

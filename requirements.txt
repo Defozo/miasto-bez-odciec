@@ -1,0 +1,14 @@
+fastapi==0.142.2
+# Keep the installer shipped in the runtime image at the audited version too.
+pip==26.2
+starlette==1.7.0
+uvicorn[standard]==0.34.2
+SQLAlchemy==2.0.40
+alembic==1.15.2
+psycopg[binary]==3.2.6
+argon2-cffi==23.1.0
+python-multipart==0.0.32
+Pillow==12.3.0
+httpx==0.28.1
+pytest==9.1.1
+GeoAlchemy2==0.17.1

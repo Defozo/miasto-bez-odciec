@@ -1,0 +1,21 @@
+{
+  "data_mode": "fixture",
+  "timezone": "Europe/Warsaw",
+  "pilot_area": "Kraków, al. Słowackiego: Karmelicka - Łobzowska (kandydat do audytu)",
+  "pilot_confirmed": false,
+  "max_buffer_m": 3000,
+  "metric_crs": "EPSG:2180",
+  "source_refresh_minutes": 30,
+  "graph_refresh_days": 7,
+  "graph_source": null,
+  "expiry_check_seconds": 60,
+  "dynamic_evidence_ttl_hours": 4,
+  "geometry_evidence_ttl_days": 30,
+  "upload_max_bytes": 5000000,
+  "analysis_timeout_seconds": 30,
+  "source_hosts": ["krakow.pl", "www.krakow.pl", "zdmk.krakow.pl", "ztp.krakow.pl", "overpass-api.de"],
+  "provider_daily_call_limit": 100,
+  "groq_model": "openai/gpt-oss-120b",
+  "ai_enabled_by_default": false,
+  "disclaimer": "Dane fixture są syntetyczne; ustawienia profili wymagają uzgodnienia z uczestnikami pilota."
+}
