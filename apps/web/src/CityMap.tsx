@@ -48,7 +48,7 @@ export default function CityMap({graph, route, selectedTime, onSelectAsset, comp
     if (!container.current) return;
     let map: MapLibreMap;
     try {
-      map = new maplibregl.Map({container:container.current,style:{version:8,sources:{},layers:[{id:'ground',type:'background',paint:{'background-color':'#e5ebe3'}}]},center:[19.930,50.0705],zoom:14.9,attributionControl:false,cooperativeGestures:true,renderWorldCopies:false});
+      map = new maplibregl.Map({container:container.current,style:{version:8,sources:{},layers:[{id:'ground',type:'background',paint:{'background-color':'#e9eef3'}}]},center:[19.930,50.0705],zoom:14.9,attributionControl:false,cooperativeGestures:true,renderWorldCopies:false});
     } catch { setMapError(true); return; }
     mapRef.current = map;
     map.on('move',()=>{const center=map.getCenter(),current:MapViewport={center:[center.lng,center.lat],zoom:map.getZoom(),bearing:map.getBearing(),pitch:map.getPitch()};setCameraStamp(JSON.stringify([center.lng,center.lat,current.zoom,current.bearing,current.pitch].map(value=>Number(value.toFixed(5)))));if(!synchronizing.current)viewportChange.current?.(current);});
@@ -56,11 +56,11 @@ export default function CityMap({graph, route, selectedTime, onSelectAsset, comp
     map.on('error',()=>setMapError(true));
     map.on('load', () => {
       map.addSource('corridors', {type:'geojson',data:{type:'FeatureCollection',features:[]}});
-      map.addLayer({id:'corridor-shadow',type:'line',source:'corridors',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#cdd6ca','line-width':28}});
-      map.addLayer({id:'corridor-casing',type:'line',source:'corridors',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#fcfcf8','line-width':23}});
-      map.addLayer({id:'corridor-lines',type:'line',source:'corridors',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#61756e','line-width':4}});
-      map.addLayer({id:'constraint-lines',type:'line',source:'corridors',filter:['==',['get','active'],true],layout:{'line-cap':'round'},paint:{'line-color':'#c45745','line-width':6,'line-dasharray':[1.6,1.2]}});
-      map.addLayer({id:'route-lines',type:'line',source:'corridors',filter:['==',['get','route'],true],layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#266b53','line-width':7}});
+      map.addLayer({id:'corridor-shadow',type:'line',source:'corridors',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#d2dce5','line-width':28}});
+      map.addLayer({id:'corridor-casing',type:'line',source:'corridors',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#ffffff','line-width':23}});
+      map.addLayer({id:'corridor-lines',type:'line',source:'corridors',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#64778a','line-width':4}});
+      map.addLayer({id:'constraint-lines',type:'line',source:'corridors',filter:['==',['get','active'],true],layout:{'line-cap':'round'},paint:{'line-color':'#b64b32','line-width':6,'line-dasharray':[1.6,1.2]}});
+      map.addLayer({id:'route-lines',type:'line',source:'corridors',filter:['==',['get','route'],true],layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#245d91','line-width':7}});
       map.on('click','corridor-lines',e => { const id = e.features?.[0]?.properties?.asset_id; if (id) assetSelectRef.current?.(id); });
       map.on('mouseenter','corridor-lines',() => { map.getCanvas().style.cursor = 'pointer'; });
       map.on('mouseleave','corridor-lines',() => { map.getCanvas().style.cursor = ''; });
