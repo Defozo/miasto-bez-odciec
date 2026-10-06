@@ -1,28 +1,36 @@
-# Produkt i wartość
+# Planowanie robót z zachowaniem dojścia do usług
 
-Miasto bez odcięć służy do oceny dostępu do usług podczas remontów i awarii. Jednostką analizy jest relacja: początek, profil potrzeb, cel i okno podróży. Pozwala to porównać harmonogramy na tym samym zbiorze dojść, z uwzględnieniem czasu, brakujących pomiarów i wspólnych zależności infrastruktury.
+Miasto bez odcięć pomaga koordynatorowi ocenić remonty z perspektywy mieszkańca: czy z danego miejsca, przy określonych potrzebach i godzinie wyjścia, pozostanie dojście do wybranej usługi. Wspólny model łączy harmonogram prac, przejścia, wejścia do budynków, dowody terenowe i zasoby potrzebne do realizacji wariantu.
 
-## Użytkownicy i decyzje
+## Wykryj konflikt przed zatwierdzeniem harmonogramu
 
-| Użytkownik | Działanie w aplikacji | Wynik |
+Gdy dwa zamknięcia osobno pozostawiają obejście, ich łączny skutek łatwo przeoczyć. System porównuje je na tym samym zbiorze dojść i pokazuje czas utraty dostępu, relacje zyskujące i tracące oraz warunki wybranego wariantu. Analiza obejmuje całe okno podróży i wspólne zależności, takie jak winda używana przez kilka tras.
+
+Koordynator może zestawić przesunięcia terminów i działania z katalogu, uwzględniając zasoby, okna pracy, pojemność oraz koszty. Wynik rozróżnia fizyczne przywrócenie dojścia od uzupełnienia brakującej wiedzy. To pozwala zdecydować, czy potrzebna jest zmiana organizacji robót, czy najpierw kontrola konkretnego przejścia.
+
+## Wspólna praca czterech ról
+
+| Użytkownik | Działanie | Wynik |
 | --- | --- | --- |
-| Koordynator robót | Porównanie terminów, obejść, zasobów i kosztów | Wariant z uzasadnieniem, skutkami dla profili i warunkami realizacji |
-| Mieszkaniec | Wybór celu, godziny i wymagań | Mapa, instrukcja dojścia albo powód bariery lub niepewności |
-| Operator danych | Import, moderacja zgłoszeń i publikacja cech | Wersjonowany stan z pochodzeniem i datą ważności |
-| Weryfikator terenowy | Wykonanie przypisanego pomiaru | Obserwacja konkretnej cechy wraz z metodą, jednostką i czasem |
+| Koordynator robót | Porównuje terminy, obejścia, zasoby i koszty | Wariant z uzasadnieniem, skutkami dla profili i warunkami realizacji |
+| Mieszkaniec | Wybiera cel, godzinę i wymagania | Mapa, instrukcja dojścia albo powód bariery lub niepewności |
+| Operator danych | Importuje źródła, moderuje zgłoszenia i publikuje cechy | Wersjonowany stan z pochodzeniem i datą ważności |
+| Weryfikator terenowy | Wykonuje przypisany pomiar | Obserwacja konkretnej cechy wraz z metodą, jednostką i czasem |
 
-Dwie roboty mogą osobno pozostawiać obejście, a łącznie odcinać usługę. Aplikacja pokazuje ten konflikt oraz wynik zmiany terminu przed zapisaniem decyzji. Nieznany koszt pozostaje nieznany; brak pomiaru nie staje się potwierdzeniem przejezdności.
+Potwierdzenie szerokości dotyczy szerokości, a odnotowane otwarcie dotyczy otwarcia. System zachowuje znaczenie każdej obserwacji i wskazuje wygasłe lub sprzeczne informacje. Brak pomiaru pozostaje niewiadomą.
 
-## Co mierzyć
+## Połącz plan z oceną efektu
 
-W demonstracyjnym grafie przesunięcie jednych robót zachowuje ich czas trwania i daje prognozę odzysku 9 godzin relacji. Warunkiem jest potwierdzone otwarcie drugiego przejścia o 14:00. To wynik modelu syntetycznego, a nie oszacowanie korzyści dla całego miasta.
+Wybrany wariant ma uzasadnienie, odpowiedzialnego, wykonawcę, termin i warunki. Rejestr wykonania oraz odrębna nowa obserwacja pozwalają zestawić prognozę z zaobserwowaną zmianą. Raport zachowuje także wynik zerowy, pogorszenie i relacje z niewystarczającymi danymi. Wyniki można wyeksportować do JSON, CSV i GeoJSON.
 
-Przy wdrożeniu porównuj czas potrzebny do poprawnej decyzji, wykryte kolizje, długość przerw w dojściu, liczbę relacji z pełnymi dowodami i czas aktualizacji danych. Po wykonaniu prac zapisuj nową obserwację. Raport oddziela prognozę od zmiany zaobserwowanej, zachowując także wynik zerowy lub pogorszenie.
+W syntetycznym [scenariuszu demonstracyjnym](DEMO.md) przesunięcie jednych robót zachowuje ich czas trwania i daje prognozę odzysku 9 godzin relacji. Warunkiem jest potwierdzone otwarcie drugiego przejścia o 14:00. Jednostka odnosi się do zadanego zbioru dojść; nie jest oszacowaniem korzyści dla całego miasta. Pilotaż terenowy i badanie z mieszkańcami pozostają do przeprowadzenia.
 
-## Wdrożenie i koszt utrzymania
+Przy pilotażu warto mierzyć czas potrzebny do poprawnej decyzji, wykryte kolizje, długość przerw w dojściu, pokrycie aktualnymi dowodami i czas aktualizacji danych. [Plan pilotażu](PILOT.md) opisuje przygotowanie obszaru, pracę z uczestnikami i kontrolę danych.
 
-Aplikacja działa jako frontend, API, worker, baza i prywatny magazyn dowodów. SQLite służy do lokalnego pokazu, a Compose uruchamia wariant PostgreSQL/PostGIS. Funkcje podstawowe nie wymagają płatnych usług AI.
+## Przygotowanie własnego obszaru
 
-Koszt wdrożenia obejmuje przygotowanie grafu i wejść, kontrolę danych, konfigurację środowiska oraz przeszkolenie operatora. Koszt bieżący obejmuje hosting, bazę, storage, kopię poza hostem, moderację, pomiary i reakcję na wygasające dowody. Opcjonalne API są osobną pozycją zależną od zużycia. Ceny i nakład pracy ustala się dla faktycznego obszaru oraz rytmu zmian; aplikacja nie zawiera cennika usług miejskich ani automatycznego rozliczania.
+Aplikacja działa jako frontend, API, worker, baza i prywatny magazyn dowodów. SQLite umożliwia lokalny pokaz, a Compose uruchamia wariant PostgreSQL/PostGIS. Podstawowe funkcje działają bez płatnych usług AI. Import OSM, GeoJSON i CSV prowadzi przez staging oraz kontrolę topologii, wejść i cech przejść przed publikacją.
 
-Właściciel danych wyznacza osoby uprawnione do publikacji i pomiarów, rytm kontroli oraz procedurę reagowania na rozbieżność. Przydział zadania w systemie jest rejestrem pracy i sam nie stanowi przyjęcia zlecenia przez zewnętrznego wykonawcę. [Utrzymanie](OPERATIONS.md) i [pilotaż](PILOT.md) opisują wykonanie tych kroków.
+Wdrożenie obejmuje przygotowanie grafu i wejść, kontrolę danych, konfigurację środowiska oraz przeszkolenie operatora. Bieżący koszt zależy od hostingu, bazy, storage, kopii poza hostem, moderacji, pomiarów i rytmu zmian na danym obszarze. Opcjonalne API są rozliczane osobno według zużycia.
+
+Właściciel danych wyznacza osoby uprawnione do publikacji i pomiarów oraz procedurę reakcji na rozbieżności. Przydział zadania w systemie rejestruje pracę; przyjęcie zlecenia przez zewnętrznego wykonawcę wymaga osobnego uzgodnienia. [Instrukcja utrzymania](OPERATIONS.md) opisuje role, aktualizacje, backup i odtwarzanie.

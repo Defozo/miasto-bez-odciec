@@ -52,6 +52,6 @@ Uruchom aplikację bez `-WithAI`. Dodaj ręcznie treść źródła, obiekt, czas
 
 ## Zakończenie
 
-„Demonstrator pokazuje kompletny obieg decyzji na kontrolowanych danych. Pilot wymaga audytu ciągów i testu z uczestnikami. Mierzymy zarówno przydatne pokrycie, jak i czas utrzymania dowodów. Nie deklarujemy poprawy w terenie na podstawie samej symulacji.”
+„Miasto bez odcięć łączy wykrycie kolizji robót z wyborem harmonogramu, kontrolą przejścia i oceną efektu decyzji. Na tym przykładzie widać, jak przesunięcie prac zmienia dostęp do przychodni i od czego zależy wynik. Następnym krokiem jest pilotaż na zinwentaryzowanym obszarze, z udziałem mieszkańców i pomiarem kosztu aktualizacji danych.”
 
-Do pokazu dołącz aktualny `docs/VERIFICATION.md`. Nie cytuj wyniku testu, którego nie ma w raporcie. Publiczny URL i przyjęcie zgłoszenia są osobnymi rezultatami; lokalny pakiet ich nie potwierdza.
+Zakres wykonanych testów i przypisanie wyników do wersji opisuje [raport weryfikacji](VERIFICATION.md). Przygotowanie badania na realnym obszarze: [plan pilotażu](PILOT.md).

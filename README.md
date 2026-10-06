@@ -2,23 +2,32 @@
 
 **DEFOZO SOFTWARE HOUSE · Michał Kiełtyka**
 
-Miasto bez odcięć pomaga koordynować remonty tak, aby zachować dojście do przychodni, sklepu czy przystanku. Wykrywa sytuacje, w których dwa zamknięcia osobno pozostawiają obejście, ale razem odcinają usługę. Koordynator porównuje harmonogramy, mieszkaniec sprawdza dojście dla swoich potrzeb, a operator i weryfikator uzupełniają dane pomiarami.
+Zaplanuj remonty tak, by zachować dojście do przychodni, sklepu i przystanku. Miasto bez odcięć pokazuje, kiedy nakładające się zamknięcia odcinają usługę, oraz pozwala porównać terminy i obejścia przed zatwierdzeniem planu. Łączy pracę koordynatora, operatora danych i weryfikatora z widokiem dojścia dla mieszkańca.
 
 [Otwórz demo](https://miasto-bez-odciec.34.116.152.48.sslip.io) · [Prezentacja PDF](https://miasto-bez-odciec.34.116.152.48.sslip.io/materialy/miasto-bez-odciec.pdf) · [Film](https://miasto-bez-odciec.34.116.152.48.sslip.io/materialy/miasto-bez-odciec-demo.mp4) · [Kod ZIP](https://miasto-bez-odciec.34.116.152.48.sslip.io/materialy/source-snapshot.zip) · [HackTribe](https://hackyeah2026.hacktribe.co/miasto-bez-odciec/)
 
-## Jak działa
+## Zobacz skutki połączenia robót
+
+Dwa zamknięcia mogą osobno pozostawiać obejście, a razem odcinać dostęp. Analiza sprawdza je we wspólnym horyzoncie, dla tych samych początków, celów i profili potrzeb. Porównanie pokazuje, kto w modelu zyskuje lub traci dojście, przez jaki czas oraz pod jakimi warunkami.
+
+- **Czas całej podróży.** Dostępność przejść i ważność dowodów są sprawdzane w całym zadanym oknie dojścia, także gdy roboty rozpoczynają się w jego trakcie.
+- **Rzeczywiste zależności modelu.** Dwie trasy korzystające z tej samej windy mają wspólny punkt awarii. Analiza odporności uwzględnia obiekty i grupy wspólnej awarii.
+- **Wykonalny harmonogram.** Porównanie wariantów obejmuje terminy, zasoby, ich pojemność i okna dostępności oraz koszty. Warunki krytyczne i niewiadome pozostają widoczne przy wyniku.
+- **Decyzja z historią.** Wybrany wariant prowadzi do zapisu odpowiedzialności, wykonania i nowej obserwacji. Można zestawić prognozę z zaobserwowaną zmianą i wyeksportować wynik.
+
+## Od zgłoszenia do sprawdzonej informacji
 
 1. Operator dodaje źródła, roboty i dowody dotyczące przejść oraz wejść do usług.
-2. Koordynator porównuje terminy robót, dostępność obejść, wymagane zasoby i koszty. Wynik pokazuje zyski, straty i warunki wybranego wariantu.
-3. Mieszkaniec wybiera początek, cel, godzinę i wymagania. Otrzymuje mapę i instrukcję dojścia albo informację o barierze lub brakujących danych.
-4. Zgłoszenie prowadzi do moderacji i kontroli terenowej. Nowy pomiar aktualizuje konkretną cechę przejścia.
-5. Zapis decyzji, wykonania i nowej obserwacji pozwala porównać prognozę z zaobserwowanym efektem.
+2. Koordynator porównuje harmonogramy i wybiera wariant z uzasadnieniem oraz warunkami realizacji.
+3. Mieszkaniec wybiera początek, cel, godzinę i wymagania. Otrzymuje mapę i instrukcję dojścia albo wskazanie bariery lub potrzebnej kontroli.
+4. Zgłoszenie trafia do moderacji i kontroli terenowej. Pomiar aktualizuje konkretną cechę przejścia, z metodą, jednostką i czasem ważności.
+5. Po wykonaniu prac nowa obserwacja pozwala ocenić efekt decyzji.
 
-Obliczenia obejmują całe okno podróży oraz wspólne zależności tras, np. jedną windę. Brak danych jest osobnym stanem. AI może pomóc odczytać komunikat, ale wynik zatwierdza operator; trasy i harmonogramy liczy silnik reguł.
+Potwierdzone dojście, znana bariera i brak danych mają odrębne znaczenie. Zatwierdzenie planu ani planowy koniec robót nie zastępują dowodu otwarcia. AI może pomóc odczytać komunikat do przeglądu operatora; podstawowy proces planowania i podejmowania decyzji działa także bez usług AI.
 
-## Dane demonstracyjne
+## Sprawdź scenariusz dwóch zamknięć
 
-Domyślna warstwa `fixture` zawiera **dane syntetyczne** z datą 3 października 2026 i godzinami Europe/Warsaw. Współrzędne ilustrują Kraków, ale nie opisują aktualnego stanu chodników. Importy OSM trafiają do stagingu i wymagają sprawdzenia przed publikacją. Pilota terenowego i badania z mieszkańcami dotąd nie przeprowadzono.
+Domyślna warstwa `fixture` zawiera **dane syntetyczne** z datą 3 października 2026 i godzinami Europe/Warsaw. Współrzędne ilustrują Kraków, ale nie opisują aktualnego stanu chodników. Importy OSM trafiają do stagingu i wymagają sprawdzenia przed publikacją. [Plan pilotażu](docs/PILOT.md) opisuje przygotowanie realnego obszaru, kontrolę danych i badanie z mieszkańcami.
 
 W przykładzie dwie roboty powodują utratę **9 godzin relacji** dla dwóch początków i jednej przychodni. Przesunięcie Y na 14:30-20:30 daje prognozę odzysku 9 h przy potwierdzonym otwarciu X o 14:00. Jednostka dotyczy zadanego zbioru dojść, nie liczby mieszkańców. [Pełny scenariusz](docs/DEMO.md) wyjaśnia także opóźnione otwarcie, wspólną windę, zgłoszenia i działanie offline.
 
@@ -66,7 +75,7 @@ Jawne ustawienia: `.env.example` i `config/settings.json`. Sekrety przechowuj w 
 
 Podczas publikacji 4 października 2026 przeszło 125 testów Python oraz build frontendu z `npm ci`. Wcześniejsza walidacja obejmowała 9 scenariuszy przeglądarki i 41 kontroli HTTP na PostGIS. [Instrukcja testowania](docs/VERIFICATION.md) podaje zakres, polecenia oraz warunki interpretacji wyników.
 
-Gotowość usługi sprawdza `/health/ready`, a stan workera, kolejki i aktualność dowodów są dostępne w diagnostyce dla uprawnionego operatora. [Instrukcja utrzymania](docs/OPERATIONS.md) opisuje backup, próbę odtworzenia, aktualizację, HTTPS i role. Publiczne demo zależy od utrzymania hostingu i DNS.
+Gotowość usługi sprawdza `/health/ready`, a stan workera, kolejki i aktualność dowodów są dostępne w diagnostyce dla uprawnionego operatora. [Instrukcja utrzymania](docs/OPERATIONS.md) opisuje backup, próbę odtworzenia, aktualizację, HTTPS i role.
 
 ## Dokumentacja
 
